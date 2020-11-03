@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/motion_layout_scene"
+    tools:showPaths="true">
+
+    <TextView
+        android:id="@+id/myText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:maxLines="1"
+        android:padding="16dp"
+        android:text="@string/someText"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/forward"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="12dp"
+        android:background="@color/colorPrimary"
+        android:tint="@color/colorAccent"
+        android:src="@drawable/ic_baseline_arrow_forward_24"/>
+
+    <ImageView
+        android:id="@+id/archive"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#C948B7EA"
+        android:padding="12dp"
+        android:src="@drawable/ic_baseline_archive_24" />
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="#F44336"
+        android:padding="12dp"
+        android:src="@drawable/ic_baseline_delete_24"/>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

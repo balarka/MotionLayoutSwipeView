@@ -1,0 +1,4 @@
+<resources>
+	<string name="app_name">MotionLayoutSlider</string>
+	<string name="someText">Swipe left to forward or archive and right to delete.</string>
+</resources>

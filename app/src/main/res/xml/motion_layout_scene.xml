@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/tools">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/myText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:background="@color/colorAccent"
+            android:padding="16dp"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/forward"
+            android:layout_width="50dp"
+            android:layout_height="52dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@id/myText"
+            app:layout_constraintStart_toEndOf="@id/myText"
+            app:layout_constraintEnd_toStartOf="@id/archive"
+            app:layout_constraintTop_toTopOf="@id/myText" />
+
+        <Constraint
+            android:id="@+id/archive"
+            android:layout_width="50dp"
+            android:layout_height="52dp"
+            android:background="#F44336"
+            app:layout_constraintBottom_toBottomOf="@id/forward"
+            app:layout_constraintStart_toEndOf="@id/forward"
+            app:layout_constraintTop_toTopOf="@id/forward" />
+
+        <Constraint
+            android:id="@+id/delete"
+            android:layout_width="50dp"
+            android:layout_height="52dp"
+            android:background="#FFEB3B"
+            app:layout_constraintBottom_toBottomOf="@id/myText"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/myText" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/myText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_marginEnd="100dp" />
+
+        <Constraint
+            android:id="@+id/forward"
+            app:layout_constraintBottom_toBottomOf="@id/myText"
+            app:layout_constraintTop_toTopOf="@id/myText"
+            app:layout_constraintStart_toEndOf="@id/myText"
+            app:layout_constraintEnd_toStartOf="@id/archive" />
+
+        <Constraint
+            android:id="@+id/archive"
+            app:layout_constraintBottom_toBottomOf="@id/myText"
+            app:layout_constraintStart_toEndOf="@id/forward"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/myText" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end2">
+        <Constraint
+            android:id="@+id/myText"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Constraint
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@id/myText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/myText"/>
+    </ConstraintSet>
+
+    <Transition
+        android:id="@+id/tid"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start">
+        <OnSwipe
+            app:dragDirection="dragLeft"
+            app:touchAnchorId="@+id/myText"
+            app:touchAnchorSide="right" />
+    </Transition>
+
+    <Transition
+        android:id="@+id/tid2"
+        app:constraintSetEnd="@+id/end2"
+        app:constraintSetStart="@+id/start"
+        app:duration="1000">
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:touchAnchorId="@+id/myText"
+            app:touchAnchorSide="left" />
+    </Transition>
+</MotionScene>
