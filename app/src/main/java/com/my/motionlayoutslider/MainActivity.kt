@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 if (p1 == R.id.end2) {
+                    // start animation of motionlayout to collapse it to hidden and
+                    // finally remove it from view hierarchy.
                     ml.animate()
                         .alpha(0f)
                         .setDuration(250)
