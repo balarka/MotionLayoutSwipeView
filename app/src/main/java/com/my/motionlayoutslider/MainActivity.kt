@@ -3,7 +3,6 @@ package com.my.motionlayoutslider
 import android.animation.Animator
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
@@ -24,8 +23,8 @@ class MainActivity : AppCompatActivity() {
             override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
             }
 
-            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-                if (p1 == R.id.end2) {
+            override fun onTransitionCompleted(p0: MotionLayout?, currentConstraintId: Int) {
+                if (currentConstraintId == R.id.end2) {
                     // start animation of motionlayout to collapse it to hidden and
                     // finally remove it from view hierarchy.
                     ml.animate()
@@ -36,8 +35,7 @@ class MainActivity : AppCompatActivity() {
                             }
 
                             override fun onAnimationEnd(p0: Animator?) {
-                                ml.visibility = View.GONE
-                                Toast.makeText(this@MainActivity, "Message deleted!", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@MainActivity, "Message deleted!", Toast.LENGTH_LONG).show()
                             }
 
                             override fun onAnimationCancel(p0: Animator?) {
@@ -54,12 +52,16 @@ class MainActivity : AppCompatActivity() {
         })
 
         forward.setOnClickListener {
-            Toast.makeText(this, "Forward the email", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Forward the email", Toast.LENGTH_LONG).show()
         }
 
         archive.setOnClickListener {
-            Toast.makeText(this, "Archived the email!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Archived the email!", Toast.LENGTH_LONG).show()
         }
 
+        button.setOnClickListener {
+            ml.alpha = 1.0f
+            ml.progress = 0.0f
+        }
     }
 }
